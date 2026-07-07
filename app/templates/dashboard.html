@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>API Performance Dashboard</title>
+</head>
+<body>
+    <h1>API Performance Dashboard</h1>
+    <div id="metrics"></div>
+    <script>
+        fetch('/api/performance')
+            .then(response => response.json())
+            .then(data => {
+                const metricsDiv = document.getElementById('metrics');
+                metricsDiv.innerHTML = JSON.stringify(data);
+            });
+    </script>
+</body>
+</html>
